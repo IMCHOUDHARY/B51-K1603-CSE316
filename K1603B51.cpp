@@ -40,7 +40,31 @@
 			i++;
 		}
 		return -1;
-	}       
+	} 
+	
+	
+	void release_pid(int pid) 
+{
+		int i=0;
+		while(i<MAX_PID) 
+          {
+			if(obj[i]. pid==pid) 
+                       {
+				int res=pthread_mutex_lock(&Lock);
+                                    if(res==0)
+                                   {
+                                    printf(“Aborting the process as res==0”);
+                                    } 
+            				assert(res==0);
+				obj[i]. isAllocated=0;
+				res=pthread_mutex_unlock(&Lock);
+				break;
+			}
+			i++;
+		}
+	}
+	
+	      
     int main() 
 	{
  	if(allocate_map()) 
