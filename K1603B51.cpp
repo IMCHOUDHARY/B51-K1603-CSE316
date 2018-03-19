@@ -64,6 +64,17 @@
 		}
 	}
 	
+	void* Func(void *args) 
+{
+		int pid=allocate_pid();
+		printf("New process created with pid: %d\n",pid);
+		int time=(rand()+20)%(40+1);
+		sleep(time);
+		release_pid(pid);
+		printf("Process destroyed with pid: %d\n",pid);
+	}
+	
+	
 	      
     int main() 
 	{
